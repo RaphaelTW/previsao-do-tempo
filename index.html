@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" dir="ltr" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="description" content="Raphael Laurentino - Previsão do Tempo" />
+
+    <title>Previsão do Tempo</title>
+
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <script src="./src/js/index.js"></script>
+</head>
+
+<body>
+    <div class="box-larger">
+        <input class="input-city" type="text" placeholder="Digite o nome da cidade">
+
+        <button class="btn-search" onclick="interactionBtn()">
+            <img class="img-search" src="./src/img/find.svg" alt="buscar">
+        </button>
+
+        <div class="box-medium">
+            <h2 class="title-city">Tempo na sua localização</h2>
+            <p class="weather">Carregando...</p>
+
+            <p class="weather-min">Carregando...</p>
+            <p class="weather-max">Carregando...</p>
+
+            <div class="box-small">
+                <img class="forecast" src="" alt="ícone de informação do tempo - weather icon">
+                <p class="text-forecast"></p>
+            </div>
+
+            <p class="humidity"> Carregando...</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
