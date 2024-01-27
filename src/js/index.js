@@ -2,6 +2,8 @@ const key = "fb5dabe48ffbfd75aaf5e01cc720e335";
 
 async function getCurrentLocation() {
     try {
+        showLoadingMessage();
+
         const position = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject);
         });
@@ -13,21 +15,31 @@ async function getCurrentLocation() {
 
         insertData(data);
     } catch (error) {
-        console.error("Erro ao obter a localização: ", error);
+        showError("Erro ao obter a localização.");
     }
 }
 
 async function searchCity(city) {
     try {
+        showLoadingMessage();
+
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`);
         const data = await response.json();
         insertData(data);
     } catch (error) {
-        console.error("Erro ao buscar dados da cidade: ", error);
-        // Aqui você pode exibir uma mensagem de erro ao usuário ou então
-        // fallback para a localização atual do usuário, chamando a função getCurrentLocation()
+        showError("Erro ao buscar dados da cidade.");
         getCurrentLocation();
     }
+}
+
+function showLoadingMessage() {
+    const weatherElement = document.querySelector(".weather");
+    weatherElement.innerHTML = "Carregando...";
+}
+
+function showError(message) {
+    const weatherElement = document.querySelector(".weather");
+    weatherElement.innerHTML = message;
 }
 
 function interactionBtn() {
